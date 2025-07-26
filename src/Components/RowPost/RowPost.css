@@ -5,15 +5,15 @@
     display:flex;
     color: #fff;
     padding: 20px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     gap: 20px;
     position: relative;
     z-index: 1;
     height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0 ;
     width: 100%;
     box-sizing: border-box;
     overflow-x: auto;
@@ -27,7 +27,7 @@
     
 }
 .posters{
-    display:flex;
+    display: flex;
     flex-wrap: nowrap;
     padding-left: 20px;
     padding-right: 20px;
