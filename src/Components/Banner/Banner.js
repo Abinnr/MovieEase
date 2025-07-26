@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className='banner'>
         <div className='content'>
-            <h1 className='title'>Welcome to Natflix</h1>
+            <h1 className='title'>Welcome to MoviEase</h1>
             <div className='banner-buttons'>
                 <button className='button'>Play</button>
                 <button className='button'>My List</button>
