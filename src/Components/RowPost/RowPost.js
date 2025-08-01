@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import YouTube from 'react-youtube';
 import './RowPost.css';
-import { imageUrl } from '../../Constants/Constants';
+import { API_KEY, imageUrl } from '../../Constants/Constants';
 import axios from '../../axios'
 const RowPost = (props) => {
   const [movies,setMovies]=useState([])
@@ -17,17 +17,22 @@ const RowPost = (props) => {
 
   const [urlid,setUrlId]=useState('')
   const opts = {
-      height: '390',
-      width: '100%',
+      height: '590',
+      width: '1200',
       playerVars: {
-        // https://developers.google.com/youtube/player_parameters
         autoplay: 1,
       },
     };
 
     const handleMovie=(id)=>{
       console.log(id)
-      axios.get()
+      axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(responce=>{
+        if(responce.data.results.length!==0){
+            setUrlId(responce.data.results[0])
+        }else{
+          console.log('Arry empty')
+        }
+      })
     }
   return (
     <>
@@ -40,7 +45,9 @@ const RowPost = (props) => {
 
         </div>
 
-        <YouTube videoId="2g811Eo7K8U" opts={opts}  />
+      { urlid &&
+          <YouTube videoId={urlid.key} opts={opts}  />
+      }  
     </div>
 
     
